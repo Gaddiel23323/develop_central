@@ -63,9 +63,11 @@ function moveTask(id, direction) {
 }
 
 function deleteTask(id) {
-    tasks = tasks.filter(t => t.id !== id);
-    renderTasks();
-}
+    const confirmar = confirm("¿Deseas eliminar esta tarea del tablero?");
+    if (confirmar) {
+        tasks = tasks.filter(t => t.id !== id);
+        renderTasks();
+    }
 
 document.addEventListener('DOMContentLoaded', function() {
     const taskForm = document.getElementById('taskForm');
